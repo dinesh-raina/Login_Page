@@ -23,19 +23,16 @@ function validate()
   return true;
  }
 }
-function showalert(message){
- $("#emailVal").append(
- " <div  class="alert alert-danger alert-dismissible fade show">" + "<strong>Error!</strong> Enter a valid Email Id <button type="button" class="btn-close" data-bs-dismiss="alert"></button>" + message + "</div>");
-}
 
-showalert("alert");
-$(document).ready(function){
-  $(".login").click(function){
-    if($("#email").val()=="dinesh@gmail.com" && $("#password").val()=="Dinesh123@"){
-    alert("success")
-    }else{
-    alert("failed")
+$(document).ready(function(){
+$(".success-message").hide();
+$(".error-message").hide();
+  $(".login").click(function(){
+    if($("#email").val()=="dinesh" && $("#password").val()=="12345"){
+$(".success-message:hidden").show();
+}else{
+//    alert("Login Failed")
+    $(".error-message:hidden").show();
     }
   });
 });
-
