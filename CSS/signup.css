@@ -141,7 +141,7 @@ form .user-details .input-box{
     flex-direction: column;
   }
 }
-.drop{
+#drop{
 width: 100%;
  font-weight: 500;
  height: 45px;
