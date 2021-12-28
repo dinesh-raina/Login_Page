@@ -65,7 +65,7 @@ color: #666666;
   text-decoration: underline;
   color: #00acee;
 }
-input[type="submit"]{
+#click{
   width: 100%;
   height: 45px;
   margin-top: 20px;
@@ -105,24 +105,21 @@ color: #666666;
   text-decoration: underline;
   color: #00acee;
 }
-  .iconss {
+.iconss {
    text-align: center;
-
-  }
+   }
 #fb{
 color: #3b5998;
 font-size: 1.8em;
-padding: 5px;
 }
 #twitter{
 color: #1DA1F2;
 font-size: 1.8em;
-padding-top: 5px;
+
 }
 #google{
 color: #DB4A39;
 font-size: 1.8em;
-padding: 5px;
 }
 .login:hover{
   background: linear-gradient(-135deg, #71b7e6, #9b59b6);
@@ -132,4 +129,7 @@ display: none;
 }
 .success-message{
 display: none;
+}
+.padding{
+padding: 5px;
 }

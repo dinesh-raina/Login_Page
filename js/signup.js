@@ -16,6 +16,8 @@
 //});
 //alert($("#name").val());
 function getdata(){
+$(".hide:hidden").show();
+$(".hides").hide();
 document.getElementById("hide").style.display="none";
 var full_name = document.getElementById("name").value;
 var username = document.getElementById("username").value;
@@ -25,6 +27,7 @@ var phone = document.getElementById("phone").value;
 var city = document.getElementById("city").value;
 var dob = document.getElementById("dob").value;
 var country = document.getElementById("drop").value;
+var gender = document.getElementsByName("gender");
 document.getElementById("fname").innerHTML = full_name;
 document.getElementById("uname").innerHTML = username;
 document.getElementById("e_mail").innerHTML = email
@@ -33,4 +36,10 @@ document.getElementById("mob").innerHTML = phone;
 document.getElementById("town").innerHTML = city;
 document.getElementById("date").innerHTML = dob;
 document.getElementById("nation").innerHTML = country;
+
+for(i = 0; i < gender.length; i++) {
+if(gender[i].checked){
+document.getElementById("gen").innerHTML = gender[i].value;
+}
+}
 }

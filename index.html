@@ -18,7 +18,7 @@
        <h1>Login</h1>
        <div class="error-message">
            <div class="alert alert-danger alert-dismissible fade show">
-               <strong>Error!</strong> Incorrect Password.
+               <strong>Error!</strong> Incorrect Username or Password.
                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
            </div>
        </div>
@@ -39,13 +39,13 @@
                <input type="password" id="password" placeholder="Type your Password" required>
            </div>
            <div class="forgot"><a href="forgot.html">Forgot Password?</a></div>
-           <input type="submit" class="login" value="Login">
+           <input type="button" id="click" onclick="login()" value="Login">
            <div class="sign_up">Or sign Up Using</div>
 
            <div class="iconss">
-               <a id="fb" href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-               <a id="twitter"  href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-               <a id="google"   href="#"><ion-icon name="logo-google"></ion-icon></a>
+               <a id="fb" class="padding" href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+               <a id="twitter" class="padding"  href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+               <a id="google" class="padding"   href="#"><ion-icon name="logo-google"></ion-icon></a>
            </div>
 
           <div class="sign">Or sign Up Using</div>
