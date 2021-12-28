@@ -1,45 +1,194 @@
-//function validate()
-//{
-// var email=$("#email").val();
-// var password=$("#password").val();
-// var email_val=/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-// var password_1=/([a-z].*[A-Z])|([A-Z].*[a-z])([0-9])+([!,%,&,@,#,$,^,*,?,_,~])/;
-// var password_2=/([0-9])/;
-// var password_3=/([!,%,&,@,#,$,^,*,?,_,~])/;
 //
-// if(email_val.test(email)==false)
-// {
-//
-////  alert("Please Enter Correct Email");
-//  return false;
-// }
-// else if(password.length<8 || password_1.test(password)==false || password_2.test(password)==false || password_3.test(password)==false)
-// {
-//  alert("Please Enter Strong Password");
-//  return false;
-// }
-// else
-// {
-//  return true;
-// }
-//}
-
-//$(document).ready(function(){
-//$(".success-message").hide();
-//$(".error-message").hide();
-//  $(".login").click(function(){
-//    if($("#email").val()=="dinesh" && $("#password").val()=="12345"){
+//function login(){
+//if($("#email").val()=="dinesh" && $("#password").val()=="12345"){
 //$(".success-message:hidden").show();
 //}else{
-////    alert("Login Failed")
-//    $(".error-message:hidden").show();
+//       $(".error-message:hidden").show();
 //    }
-//  });
-//});
-function login(){
-if($("#email").val()=="dinesh" && $("#password").val()=="12345"){
-$(".success-message:hidden").show();
-}else{
-       $(".error-message:hidden").show();
-    }
-}
+//}
+
+$(document).ready(function() {
+$("#email_error_message").hide();
+$("#password_error_message").hide();
+
+var error_email = false;
+var error_password = false;
+
+   $("#email").focusout(function(){
+   check_email();
+});
+   $("#password").focusout(function() {
+    check_password();
+});
+
+function check_email() {
+var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+var email = $("#email").val();
+     if (pattern.test(email) && email !== '') {
+        $("#email_error_message").hide();
+   } else {
+               $("#email_error_message").html("Enter a Valid Email");
+               $("#email_error_message").css("color","#F90A0A");
+               $("#email_error_message").show();
+               error_email = true;
+            }
+     }
+function check_password() {
+var password_length = $("#password").val().length;
+    if (password_length < 8) {
+       $("#password_error_message").html(" Minimum 8 Characters");
+       $("#password_error_message").show();
+       $("#password_error_message").css("color","#F90A0A")
+       error_password = true;
+    } else {
+            $("#password_error_message").hide();
+           }
+   }
+
+$("#click").click(function() {
+   error_email = false;
+   error_password = false;
+
+   check_email();
+   check_password();
+
+  if ( error_email === false && error_password === false) {
+      alert("Registration Successfull");
+      return true;
+   } else {
+           alert("Please Fill the form Correctly");
+           return false;
+           }
+
+
+   });
+});
+
+
+
+
+
+
+//         $(function() {
+//
+//            $("#fname_error_message").hide();
+//            $("#sname_error_message").hide();
+//            $("#email_error_message").hide();
+//            $("#password_error_message").hide();
+//            $("#retype_password_error_message").hide();
+//
+//            var error_fname = false;
+//            var error_sname = false;
+//            var error_email = false;
+//            var error_password = false;
+//            var error_retype_password = false;
+//
+//            $("#form_fname").focusout(function(){
+//               check_fname();
+//            });
+//            $("#form_sname").focusout(function() {
+//               check_sname();
+//            });
+//            $("#form_email").focusout(function() {
+//               check_email();
+//            });
+//            $("#form_password").focusout(function() {
+//               check_password();
+//            });
+//            $("#form_retype_password").focusout(function() {
+//               check_retype_password();
+//            });
+//
+//            function check_fname() {
+//               var pattern = /^[a-zA-Z]*$/;
+//               var fname = $("#form_fname").val();
+//               if (pattern.test(fname) && fname !== '') {
+//                  $("#fname_error_message").hide();
+//                  $("#form_fname").css("border-bottom","2px solid #34F458");
+//               } else {
+//                  $("#fname_error_message").html("Should contain only Characters");
+//                  $("#fname_error_message").show();
+//                  $("#form_fname").css("border-bottom","2px solid #F90A0A");
+//                  error_fname = true;
+//               }
+//            }
+//
+//            function check_sname() {
+//               var pattern = /^[a-zA-Z]*$/;
+//               var sname = $("#form_sname").val()
+//               if (pattern.test(sname) && sname !== '') {
+//                  $("#sname_error_message").hide();
+//                  $("#form_sname").css("border-bottom","2px solid #34F458");
+//               } else {
+//                  $("#sname_error_message").html("Should contain only Characters");
+//                  $("#sname_error_message").show();
+//                  $("#form_sname").css("border-bottom","2px solid #F90A0A");
+//                  error_fname = true;
+//               }
+//            }
+//
+//            function check_password() {
+//               var password_length = $("#form_password").val().length;
+//               if (password_length < 8) {
+//                  $("#password_error_message").html("Atleast 8 Characters");
+//                  $("#password_error_message").show();
+//                  $("#form_password").css("border-bottom","2px solid #F90A0A");
+//                  error_password = true;
+//               } else {
+//                  $("#password_error_message").hide();
+//                  $("#form_password").css("border-bottom","2px solid #34F458");
+//               }
+//            }
+//
+//            function check_retype_password() {
+//               var password = $("#form_password").val();
+//               var retype_password = $("#form_retype_password").val();
+//               if (password !== retype_password) {
+//                  $("#retype_password_error_message").html("Passwords Did not Matched");
+//                  $("#retype_password_error_message").show();
+//                  $("#form_retype_password").css("border-bottom","2px solid #F90A0A");
+//                  error_retype_password = true;
+//               } else {
+//                  $("#retype_password_error_message").hide();
+//                  $("#form_retype_password").css("border-bottom","2px solid #34F458");
+//               }
+//            }
+//
+//            function check_email() {
+//               var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+//               var email = $("#form_email").val();
+//               if (pattern.test(email) && email !== '') {
+//                  $("#email_error_message").hide();
+//                  $("#form_email").css("border-bottom","2px solid #34F458");
+//               } else {
+//                  $("#email_error_message").html("Invalid Email");
+//                  $("#email_error_message").show();
+//                  $("#form_email").css("border-bottom","2px solid #F90A0A");
+//                  error_email = true;
+//               }
+//            }
+//
+//            $("#registration_form").submit(function() {
+//               error_fname = false;
+//               error_sname = false;
+//               error_email = false;
+//               error_password = false;
+//               error_retype_password = false;
+//
+//               check_fname();
+//               check_sname();
+//               check_email();
+//               check_password();
+//               check_retype_password();
+//
+//               if (error_fname === false && error_sname === false && error_email === false && error_password === false && error_retype_password === false) {
+//                  alert("Registration Successfull");
+//                  return true;
+//               } else {
+//                  alert("Please Fill the form Correctly");
+//                  return false;
+//               }
+//
+//
+//            });
+//         });
