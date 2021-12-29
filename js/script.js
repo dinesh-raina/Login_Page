@@ -48,21 +48,45 @@ var password_length = $("#password").val().length;
 $("#click").click(function() {
    error_email = false;
    error_password = false;
-
+   var captchaVal = false;
+   var response = grecaptcha.getResponse();
+   if(response.length == 0) {
+    captchaVal = false;
+    alert('verify the captcha.');
+} else {
+    captchaVal = true;
+}
    check_email();
    check_password();
 
-  if ( error_email === false && error_password === false) {
-      alert("Registration Successfull");
+  if ( error_email === false && error_password === false && captchaVal === true) {
+      window.location.href = "welcome.html";
       return true;
-   } else {
-           alert("Please Fill the form Correctly");
-           return false;
-           }
-
-
-   });
+   }
+  });
 });
+
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LeuqNcdAAAAAMhCd2o2CqPDyVHu_Iq60Q8YiqoB', {action: 'click'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+          });
+        });
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

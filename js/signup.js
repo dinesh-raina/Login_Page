@@ -1,34 +1,12 @@
 
-function getdata(){
-$(".hide:hidden").show();
-$(".hides").hide();
-document.getElementById("hide").style.display="none";
-var full_name = document.getElementById("fname").value;
-var username = document.getElementById("lname").value;
-var password = document.getElementById("password").value;
-var confromPassword = document.getElementById("c_password").value;
-var email = document.getElementById("email").value;
-var phone = document.getElementById("phone").value;
-var city = document.getElementById("city").value;
-var dob = document.getElementById("dob").value;
-var country = document.getElementById("country").value;
-var gender = document.getElementsByName("gender");
-document.getElementById("f_name").innerHTML = full_name;
-document.getElementById("uname").innerHTML = username;
-document.getElementById("e_mail").innerHTML = email
-document.getElementById("pass").innerHTML = password;
-document.getElementById("cpass").innerHTML = confromPassword ;
-document.getElementById("mob").innerHTML = phone;
-document.getElementById("town").innerHTML = city;
-document.getElementById("date").innerHTML = dob;
-document.getElementById("nation").innerHTML = country;
-
-for(i = 0; i < gender.length; i++) {
-if(gender[i].checked){
-document.getElementById("gen").innerHTML = gender[i].value;
-}
-}
-}
+//function getdata(){
+//
+//for(i = 0; i < gender.length; i++) {
+//if(gender[i].checked){
+//document.getElementById("gen").innerHTML = gender[i].value;
+//}
+//}
+//}
 //$(function() {
 //var date = new Date();
 //var currentMonth = date.getMonth();
@@ -38,37 +16,104 @@ document.getElementById("gen").innerHTML = gender[i].value;
 //maxDate: new Date(currentYear, currentMonth, currentDate)
 //});
 //});
+function reset(){
+document.getElementById("hide").reset();
+}
 
 $(document).ready(function() {
 $("#phone_error_message").hide();
-
+$("#email_error_message").hide();
+$("#password_error_message").hide();
+$("#retype_password_error_message").hide();
 var error_phone = false;
+var err_password = false;
+var error_retype_password = false;
+
 
 $("#phone").focusout(function(){
    check_phone();
 });
-   $("#password").focusout(function() {
-    check_password();
+$("#password").focusout(function(){
+  check_password();
 });
+$("#form_retype_password").focusout(function() {
+  check_retype_password();
+ });
+
 
 function check_phone() {
-var pattern = ([0-9]{10})|(\([0-9]{3}\)\s+[0-9]{3}\-[0-9]{4});
+var pattern = /^\d{10}$/;
 var email = $("#phone").val();
      if (pattern.test(email) && email !== '') {
         $("#phone_error_message").hide();
    } else {
-               $("#phone_error_message").html("Enter a Valid Email");
+               $("#phone_error_message").html("Enter a Valid 10 Digit Number");
                $("#phone_error_message").css("color","#F90A0A");
                $("#phone_error_message").show();
                error_phone = true;
             }
-     }
+ }
+function check_password() {
+var password_length = $("#password").val().length;
+    if (password_length < 8) {
+       $("#password_error_message").html(" Minimum 8 Characters");
+       $("#password_error_message").show();
+       $("#password_error_message").css("color","#F90A0A")
+       error_password = true;
+    } else {
+            $("#password_error_message").hide();
+           }
+   }
 
 $("#click").click(function() {
+   error_password = false;
    error_phone = false;
    check_phone();
+   check_password();
   if ( error_phone === false) {
-      alert("Registration Successfull");
+//      alert("Registration Successfull");
+$(".hide:hidden").show();
+$(".hides").hide();
+document.getElementById("hide").style.display="none";
+var fLabel = document.getElementById("flabel").textContent;
+var full_name = document.getElementById("fname").value;
+var uLabel = document.getElementById("ulabel").textContent;
+var username = document.getElementById("lname").value;
+var pasLabel = document.getElementById("paslabel").textContent;
+var password = document.getElementById("password").value;
+var cLabel = document.getElementById("confromlabel").textContent;
+var confromPassword = document.getElementById("c_password").value;
+var emailLabel = document.getElementById("emaillabel").textContent;
+var email = document.getElementById("email").value;
+var phoneLabel = document.getElementById("phonelabel").textContent;
+var phone = document.getElementById("phone").value;
+var cityLabel = document.getElementById("citylabel").textContent;
+var city = document.getElementById("city").value;
+var dobLabel = document.getElementById("doblabel").textContent;
+var dob = document.getElementById("dob").value;
+var countryLabel = document.getElementById("nationlabel").textContent;
+var country = document.getElementById("country").value;
+var genderLabel = document.getElementById("genlabel").textContent;
+var gender = document.getElementsByName("gender");
+document.getElementById("f_label").innerHTML = fLabel;
+document.getElementById("f_name").innerHTML = full_name;
+document.getElementById("u_label").innerHTML = uLabel;
+document.getElementById("uname").innerHTML = username;
+document.getElementById("email_label").innerHTML = emailLabel;
+document.getElementById("e_mail").innerHTML = email
+document.getElementById("pass_label").innerHTML = pasLabel;
+document.getElementById("pass").innerHTML = password;
+document.getElementById("confrom_label").innerHTML = cLabel;
+document.getElementById("cpass").innerHTML = confromPassword ;
+document.getElementById("mobile_label").innerHTML = phoneLabel;
+document.getElementById("mob").innerHTML = phone;
+document.getElementById("town_label").innerHTML = cityLabel;
+document.getElementById("town").innerHTML = city;
+document.getElementById("date_label").innerHTML = dobLabel;
+document.getElementById("date").innerHTML = dob;
+document.getElementById("country_label").innerHTML = countryLabel;
+document.getElementById("nation").innerHTML = country;
+
       return true;
    } else {
            alert("Please Fill the form Correctly");
