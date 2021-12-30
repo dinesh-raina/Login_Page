@@ -129,7 +129,8 @@ padding: 5px;
 font-size: 12px;
 
 }
-.g-recaptcha{
-margin-top: 5px;
+.g-recaptcha {
+transform:scale(0.90);
+transform-origin:0 0;
 
 }

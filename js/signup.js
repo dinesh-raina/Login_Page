@@ -1,12 +1,5 @@
 
-//function getdata(){
-//
-//for(i = 0; i < gender.length; i++) {
-//if(gender[i].checked){
-//document.getElementById("gen").innerHTML = gender[i].value;
-//}
-//}
-//}
+
 //$(function() {
 //var date = new Date();
 //var currentMonth = date.getMonth();
@@ -21,25 +14,16 @@ document.getElementById("hide").reset();
 }
 
 $(document).ready(function() {
+$("#country").select2();
 $("#phone_error_message").hide();
 $("#email_error_message").hide();
 $("#password_error_message").hide();
 $("#retype_password_error_message").hide();
 var error_phone = false;
-var err_password = false;
-var error_retype_password = false;
-
 
 $("#phone").focusout(function(){
    check_phone();
 });
-$("#password").focusout(function(){
-  check_password();
-});
-$("#form_retype_password").focusout(function() {
-  check_retype_password();
- });
-
 
 function check_phone() {
 var pattern = /^\d{10}$/;
@@ -53,23 +37,12 @@ var email = $("#phone").val();
                error_phone = true;
             }
  }
-function check_password() {
-var password_length = $("#password").val().length;
-    if (password_length < 8) {
-       $("#password_error_message").html(" Minimum 8 Characters");
-       $("#password_error_message").show();
-       $("#password_error_message").css("color","#F90A0A")
-       error_password = true;
-    } else {
-            $("#password_error_message").hide();
-           }
-   }
+
 
 $("#click").click(function() {
-   error_password = false;
    error_phone = false;
    check_phone();
-   check_password();
+
   if ( error_phone === false) {
 //      alert("Registration Successfull");
 $(".hide:hidden").show();
@@ -113,6 +86,12 @@ document.getElementById("date_label").innerHTML = dobLabel;
 document.getElementById("date").innerHTML = dob;
 document.getElementById("country_label").innerHTML = countryLabel;
 document.getElementById("nation").innerHTML = country;
+document.getElementById("gen_label").innerHTML = genderLabel
+for(i = 0; i < gender.length; i++) {
+if(gender[i].checked){
+document.getElementById("gen").innerHTML = gender[i].value;
+}
+}
 
       return true;
    } else {

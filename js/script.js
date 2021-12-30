@@ -8,6 +8,7 @@
 //}
 
 $(document).ready(function() {
+
 $("#email_error_message").hide();
 $("#password_error_message").hide();
 

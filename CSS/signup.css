@@ -141,7 +141,7 @@ form .user-details .input-box{
     flex-direction: column;
   }
 }
-.form-select{
+#country{
 width: 100%;
  font-weight: 500;
  height: 20px;
