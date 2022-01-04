@@ -71,75 +71,29 @@
         e.preventDefault();
         grecaptcha.ready(function() {
           grecaptcha.execute('6LeuqNcdAAAAAMhCd2o2CqPDyVHu_Iq60Q8YiqoB', {action: 'click'}).then(function(token) {
-              // Add your logic to submit to your backend server here.
-          });
+         });
         });
       }
 
 
-$(document).ready(function(){
-  $.validator.addMethod("space", function(value,element){
-   return value == '' || value.trim().length != 0;
-  }, "empty space not allowed");
-  $.validator.addMethod("customEmail", function(value, element) {
-    return this.optional( element ) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test( value );
-  }, "Enter valid email address");
+$(function(){
+var $lForm = $("login_form");
+if($lForm.length){
+$lForm.validate({
+rules:{
+email:{
+required:true
+}
+},
+message:{
+email:{
+required:"email is required"
+}
+}
+})
+}
+})
 
-  var $loginForm = $("#login_form")
-  if($loginForm.length){
-   $loginForm.validate({
-    rules: {
-     password:{
-      required: true,
-      space: true
-     },
-     email:{
-     required: true,
-     email: true,
-     customEmail: true
-
-     },
-     captcha: {
-     required: function () {
-        if (grecaptcha.getResponse() == '') {
-        return true;
-        } else {
-           return false;bn
-            }
-        }
-     }
-    },
-     messages:{
-      password:{
-       required: 'password is mandatory'
-      },
-      captcha:{
-       required: 'captcha mandatory'
-      },
-       email:{
-        required: 'email is mandatory',
-        email: 'Enter valid email address'
-       }
-     },
-
-   })
-  }
-  $("#click").click(function(){
-   var response = grecaptcha.getResponse();
-   var captchaVal = false;
-      var response = grecaptcha.getResponse();
-      if(response.length == 0) {
-       captchaVal = false;
-       alert('verify the captcha.');
-   } else {
-       captchaVal = true;
-   }
-       if ( email === false && password === false && captchaVal === true) {
-           window.location.href = "welcome.html";
-           return true;
-        }
-  });
-});
 
 
 
