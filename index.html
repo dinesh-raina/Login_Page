@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,8 +10,8 @@
     <link rel="icon" type="images/png" href="images/favIcon.png">
 
 <!--    CDN-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
 
 </head>
    <body>
@@ -35,22 +35,22 @@
            <div class="txt_field">
                <label>Email</label>
                <input type="text" id="email" name="email" placeholder="Type your Email Address" required>
-<!--               <span class="error_form" id="email_error_message"></span>-->
             </div>
 
            <div class="txt_field">
                <label>Password</label>
-               <input type="password" id="password" minlength="8" placeholder="Type your Password" required>
-<!--               <span class="error_form" id="password_error_message"></span>-->
+               <input type="password" name="password" id="password" placeholder="Type your Password" required>
+
            </div>
 
            <div class="forgot">
                <a href="forgot.html">Forgot Password?</a>
            </div>
-           <div class="g-recaptcha" data-sitekey="6LdhsdcdAAAAAGbtUUi2ryGpuzr28WglmmlDHHdG"></div>
-           <br/>
+           <div class="g-recaptcha padding" data-sitekey="6LdhsdcdAAAAAGbtUUi2ryGpuzr28WglmmlDHHdG"></div>
+           <input type="hidden" class="hiddenRecaptcha required" name="captcha" id="captcha">
 
-           <input type="submit" id="click" value="Login">
+
+           <input type="button" id="click" value="Login">
            <div class="sign_up">Or sign Up Using</div>
 
            <div class="iconss">
@@ -60,7 +60,7 @@
            </div>
 
           <div class="sign">Or sign Up Using</div>
-           <div class="sign_link"><a href="signUp.html">SIGN UP</a></div>
+           <div class="sign_link"><a href="signup.html">SIGN UP</a></div>
        </form>
    </div>
 
@@ -68,9 +68,9 @@
 
 <!--script-->
    <script src="js/jQuery.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
    <script src="js/script.js"></script>
-
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 <!--   captcha-->
 
 
@@ -79,7 +79,6 @@
 <!--   cdn-->
    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 <!--   icons-->
    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

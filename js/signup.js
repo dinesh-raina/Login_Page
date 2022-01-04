@@ -1,49 +1,93 @@
 
 
-//$(function() {
-//var date = new Date();
-//var currentMonth = date.getMonth();
-//var currentDate = date.getDate();
-//var currentYear = date.getFullYear();
-//$('#dob').datepicker({
-//maxDate: new Date(currentYear, currentMonth, currentDate)
-//});
-//});
-function reset(){
-document.getElementById("hide").reset();
-}
+
 
 $(document).ready(function() {
+
+ $(function() {
+
+    $( "#datepicker" ).datepicker({  maxDate: new Date() });
+  });
+
 $("#country").select2();
 $("#phone_error_message").hide();
 $("#email_error_message").hide();
 $("#password_error_message").hide();
 $("#retype_password_error_message").hide();
-var error_phone = false;
 
-$("#phone").focusout(function(){
-   check_phone();
-});
+  $.validator.addMethod("customPhone", function(value, element) {
+    return this.optional(element) || /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/.test(value);
+  },"Enter valid phone number");
+    $.validator.addMethod("cutomPassword", function(value, element){
+      return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/.test(value);
+    }, "pass contains min 7 char and 1 caps");
+    $.validator.addMethod("customEmail", function(value, element) {
+        return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value );
+      }, "Enter valid email address");
+        $.validator.addMethod("customName", function(value, element) {
+            return this.optional(element) || /^[a-zA-Z]*$/.test(value );
+          }, "Enter valid Name");
 
-function check_phone() {
-var pattern = /^\d{10}$/;
-var email = $("#phone").val();
-     if (pattern.test(email) && email !== '') {
-        $("#phone_error_message").hide();
-   } else {
-               $("#phone_error_message").html("Enter a Valid 10 Digit Number");
-               $("#phone_error_message").css("color","#F90A0A");
-               $("#phone_error_message").show();
-               error_phone = true;
-            }
- }
+var $signupForm = $("#hide")
+if($signupForm.length){
+    $signupForm.validate({
+        rules:{
+          phone: {
+            required: true,
+            customPhone: true,
+         },
+          firstname:{
+           customName:true
+          },
+           lastname:{
+            customName:true
+             },
+          email:{
+          required: true,
+          customEmail: true,
+           },
+          password:{
+            required:true,
+            required:true,
+            cutomPassword: true
+          },
+          dateOfBirth:{
+           required:true
+          },
+           confromPassword:{
+                    required: true,
+                     equalTo: "#password"
+        }
+
+        },
+        messages:{
+           phone:{
+            required: 'phone number is required',
+            customPhone: 'enter valid phone number'
+           },
+            email:{
+              required: 'email is mandatory',
+              customEmail: 'Enter valid email address'
+                  },
+            dateOfBirth:{
+                      required: 'date of birth is required'
+                      },
+           password:{
+             required: 'password is required',
+             cutomPassword: 'pass must contain 1caps, 1small, 1special char minium 8 char'
+           },
+           confromPassword:{
+             required: 'confrom password required',
+             equalTo: 'please enter same password'
+           }
+        }
+
+    })
+}
 
 
 $("#click").click(function() {
-   error_phone = false;
-   check_phone();
-
-  if ( error_phone === false) {
+ if ( $("#hide").valid()) {
 //      alert("Registration Successfull");
 $(".hide:hidden").show();
 $(".hides").hide();
@@ -66,8 +110,17 @@ var dobLabel = document.getElementById("doblabel").textContent;
 var dob = document.getElementById("dob").value;
 var countryLabel = document.getElementById("nationlabel").textContent;
 var country = document.getElementById("country").value;
+var hobbiesLabel = document.getElementById("hobbieslabel").textContent;
 var genderLabel = document.getElementById("genlabel").textContent;
 var gender = document.getElementsByName("gender");
+ var checks = $("input[type=checkbox][name=hobb]:checked").val();
+//var check = document.getElementsByClassName('hobb');
+//for(i=0; i < check.length; i++){
+//      if(check[i].checked){
+//           document.getElementById("hobbies").innterHTML = check[i].value;
+//
+//      }
+//}
 document.getElementById("f_label").innerHTML = fLabel;
 document.getElementById("f_name").innerHTML = full_name;
 document.getElementById("u_label").innerHTML = uLabel;
@@ -86,17 +139,15 @@ document.getElementById("date_label").innerHTML = dobLabel;
 document.getElementById("date").innerHTML = dob;
 document.getElementById("country_label").innerHTML = countryLabel;
 document.getElementById("nation").innerHTML = country;
+document.getElementById("hobbies_label").innerHTML = checks;
+
 document.getElementById("gen_label").innerHTML = genderLabel
 for(i = 0; i < gender.length; i++) {
 if(gender[i].checked){
 document.getElementById("gen").innerHTML = gender[i].value;
 }
 }
-
-      return true;
-   } else {
-           alert("Please Fill the form Correctly");
-           return false;
-           }
+    return true;
+   }
    });
 });

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="CSS/signup.css">
+    <link rel="icon" type="images/png" href="images/favIcon.png">
+<!--    CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+
+</head>
+<body>
+<div class="container">
+    <div class="title hides">Signup</div>
+    <div class="title hide">Signup Form Infromation</div>
+    <div class="hide">
+        <div class="in" id="f_label"></div>:
+        <div class="in" id="f_name"></div><br>
+        <div class="in" id="u_label"></div>:
+        <div class="in" id="uname"></div><br>
+        <div class="in" id="email_label"></div>:
+        <div class="in" id="e_mail"></div><br>
+        <div class="in" id="pass_label"></div>:
+        <div class="in" id="pass"></div><br>
+        <div class="in" id="confrom_label"></div>:
+        <div class="in" id="cpass"></div><br>
+        <div class="in" id="mobile_label"></div>:
+        <div class="in" id="mob"></div><br>
+        <div class="in" id="town_label"></div>:
+        <div class="in" id="town"></div><br>
+        <div class="in" id="date_label"></div>:
+        <div class="in" id="date"></div><br>
+        <div class="in" id="hobbies_label"></div>
+        <div class="in" id="hobbies"></div>
+        <div class="in" id="country_label"></div>:
+        <div class="in" id="nation"></div><br>
+        <div class="in" id="gen_label"></div>:
+        <div class="in" id="gen"></div>
+    </div>
+
+
+
+    <div class="content">
+
+         <form id="hide" action="#">
+            <div class="user-details">
+                <div class="input-box">
+                    <span id="flabel" class="details">First Name</span>
+                    <input type="text" id="fname" name="firstname" placeholder="Enter your First Name" required>
+                </div>
+                <div class="input-box">
+                    <span id="ulabel" class="details">Last Name</span>
+                    <input type="text" id="lname" name="lastname" placeholder="Enter your Last Name" required>
+                </div>
+                <div class="input-box">
+                    <span id="emaillabel" class="details">Email</span>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <span class="error_form" id="email_error_message"></span>
+                </div>
+                <div class="input-box">
+                    <span id="phonelabel" class="details">Phone Number</span>
+                    <input type="text" id="phone" name="phone" placeholder="Enter your number" required>
+                    <span class="error_form" id="phone_error_message"></span>
+                </div>
+
+                <div class="input-box">
+                    <span id="paslabel" class="details">Password</span>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <span class="error_form" id="#password_error_message"></span>
+                </div>
+                <div class="input-box">
+                    <span id="confromlabel" class="details">Confrom Password</span>
+                    <input type="password" id="c_password" name="confromPassword" placeholder="Enter your confrom password" required>
+                    <span class="error_form" id="#retype_password_error_message"></span>
+                </div>
+                <div class="input-box">
+                    <span id="doblabel"  class="details">Date of birth</span>
+                    <input type="text" name="dateOfBirth" id="datepicker">
+                </div>
+
+
+<!--                <div class="input-box">-->
+<!--                    <span id="hoblabel" class="details">Hobbies</span>-->
+<!--                    <div class="mb-3">-->
+<!--                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Enter your Hobbies">-->
+<!--                        <datalist id="datalistOptions">-->
+<!--                            <option value="Playing Cricket">-->
+<!--                            <option value="Reading Books">-->
+<!--                            <option value="Watching Television">-->
+<!--                        </datalist>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="input-box">
+                    <span id="citylabel" class="details">City</span>
+                    <input type="text" id="city" placeholder="Enter your City" required>
+                </div>
+                <div class="input-box">
+                    <span id="nationlabel" class="details">Nationality</span>
+                    <select class="form-select" id="country">
+                        <option selected>select a Country</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="England">England</option>
+                    </select>
+                </div>
+                <div class="categor" id="check">
+                    <span id="hobbieslabel" class="details">Hobbies</span><br>
+                    <input type="checkbox" id="crc" name="hobb"  value="Cricket">
+                    <label for="crc">Cricket</label><br>
+                    <input type="checkbox" id="tv" name="hobb" value="Television">
+                    <label for="tv"> Television</label><br>
+                    <label for="name3">
+                        <input type="checkbox" name="hobb" id="others" onclick="if(this.checked){ document.getElementById('name3').focus();}" />
+                        Other
+                    </label>
+                    <input type="text" id="name3" name="name3" />
+
+                </div>
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" value="Male" id="dot-1">
+                <input type="radio" name="gender" value="Female" id="dot-2">
+                <input type="radio" name="gender" value="Others" id="dot-3">
+                <span id="genlabel" class="gender-title">Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">Male</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">Female</span>
+                    </label>
+                    <label for="dot-3">
+                        <span class="dot three"></span>
+                        <span class="gender">Others</span>
+                    </label>
+                </div>
+            </div>
+            <div >
+                <div class="row">
+                    <div class="col-lg-6 text">
+                        <input type="button" class="bu" id="click"  value="Signup">
+                        <input type="button" class="bu" onclick="window.location.reload()"  value="Reset">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+
+<!--script-->
+<script src="js/jQuery.js"></script>
+<script src="js/signup.js"></script>
+<!--CDN-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+</body>
+</html>
