@@ -107,20 +107,22 @@ var phone = document.getElementById("phone").value;
 var cityLabel = document.getElementById("citylabel").textContent;
 var city = document.getElementById("city").value;
 var dobLabel = document.getElementById("doblabel").textContent;
-var dob = document.getElementById("dob").value;
+var dob = document.getElementById("datepicker").value;
 var countryLabel = document.getElementById("nationlabel").textContent;
 var country = document.getElementById("country").value;
 var hobbiesLabel = document.getElementById("hobbieslabel").textContent;
 var genderLabel = document.getElementById("genlabel").textContent;
 var gender = document.getElementsByName("gender");
- var checks = $("input[type=checkbox][name=hobb]:checked").val();
-//var check = document.getElementsByClassName('hobb');
-//for(i=0; i < check.length; i++){
-//      if(check[i].checked){
-//           document.getElementById("hobbies").innterHTML = check[i].value;
-//
-//      }
-//}
+// var checks = $("input[type=checkbox][name=hobb]:checked").val();
+var check = document.getElementsByClassName('hobb');
+var str = '';
+for(i=0; i < check.length; i++){
+      if(check[i].checked === true){
+          str += check[i].value + " ";
+      document.getElementById("hobbies").innterHTML = str;
+      console.log(str);
+      }
+}
 document.getElementById("f_label").innerHTML = fLabel;
 document.getElementById("f_name").innerHTML = full_name;
 document.getElementById("u_label").innerHTML = uLabel;
@@ -139,9 +141,9 @@ document.getElementById("date_label").innerHTML = dobLabel;
 document.getElementById("date").innerHTML = dob;
 document.getElementById("country_label").innerHTML = countryLabel;
 document.getElementById("nation").innerHTML = country;
-document.getElementById("hobbies_label").innerHTML = checks;
+document.getElementById("hobbies_label").innerHTML = hobbiesLabel;
 
-document.getElementById("gen_label").innerHTML = genderLabel
+document.getElementById("gen_label").innerHTML = genderLabel;
 for(i = 0; i < gender.length; i++) {
 if(gender[i].checked){
 document.getElementById("gen").innerHTML = gender[i].value;
