@@ -4,6 +4,13 @@
 
 $(document).ready(function() {
 
+var maxLength = 200;
+$('textarea').keyup(function() {
+  var length = $(this).val().length;
+  var result = maxLength-length;
+  $('#chars').html(result + ' characters remaining');
+});
+
  $(function() {
 
     $( "#datepicker" ).datepicker({  maxDate: new Date() });
@@ -91,6 +98,7 @@ $("#click").click(function() {
 //      alert("Registration Successfull");
 $(".hide:hidden").show();
 $(".hides").hide();
+
 document.getElementById("hide").style.display="none";
 var fLabel = document.getElementById("flabel").textContent;
 var full_name = document.getElementById("fname").value;

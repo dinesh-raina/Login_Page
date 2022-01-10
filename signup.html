@@ -83,18 +83,6 @@
                     <input type="text" name="dateOfBirth" id="datepicker">
                 </div>
 
-
-<!--                <div class="input-box">-->
-<!--                    <span id="hoblabel" class="details">Hobbies</span>-->
-<!--                    <div class="mb-3">-->
-<!--                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Enter your Hobbies">-->
-<!--                        <datalist id="datalistOptions">-->
-<!--                            <option value="Playing Cricket">-->
-<!--                            <option value="Reading Books">-->
-<!--                            <option value="Watching Television">-->
-<!--                        </datalist>-->
-<!--                    </div>-->
-<!--                </div>-->
                 <div class="input-box">
                     <span id="citylabel" class="details">City</span>
                     <input type="text" id="city" placeholder="Enter your City" required>
@@ -121,27 +109,40 @@
                     <input type="text" id="name3" name="name3" />
 
                 </div>
-            </div>
-            <div class="gender-details">
-                <input type="radio" name="gender" value="Male" id="dot-1">
-                <input type="radio" name="gender" value="Female" id="dot-2">
-                <input type="radio" name="gender" value="Others" id="dot-3">
-                <span id="genlabel" class="gender-title">Gender</span>
-                <div class="category">
-                    <label for="dot-1">
-                        <span class="dot one"></span>
-                        <span class="gender">Male</span>
-                    </label>
-                    <label for="dot-2">
-                        <span class="dot two"></span>
-                        <span class="gender">Female</span>
-                    </label>
-                    <label for="dot-3">
-                        <span class="dot three"></span>
-                        <span class="gender">Others</span>
-                    </label>
+                <div class="input-box">
+                    <span id="text_area" class="details">About you<span class="text-area-align">(minmum 200 characters)</span></span>
+                    <div class="col-lg-6">
+                        <textarea id="textareaChars" rows="3" cols="50" maxlength="200"></textarea>
+                        <div class="text-area-align" id="chars"> </div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span id="genlabel" class="details">Gender</span>
+
+                    <input type="radio" name="gender" value="Male" id="dot-1">
+                    <input type="radio" name="gender" value="Female" id="dot-2">
+                    <input type="radio" name="gender" value="Others" id="dot-3">
+
+                    <div class="category">
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label>
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label>
+                        <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender">Others</span>
+                        </label>
+                    </div>
                 </div>
             </div>
+
+
+
+
             <div >
                 <div class="row">
                     <div class="col-lg-6 text">
