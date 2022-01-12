@@ -82,7 +82,6 @@ form .input-box span.details{
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  margin-left: 25px;
   margin-right: 10px;
   background: #d9d9d9;
   border: 5px solid transparent;
@@ -209,14 +208,4 @@ cursor: pointer;
 }
 input.error{
 color: #000000;
-}
-#genlabel{
-padding-top: 10px;
-}
-.text-area-align{
-font-size: 10px;
-text-align: right;
-}
-.input-box .category{
-
 }
